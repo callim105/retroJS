@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1931" height="1074" viewBox="0 0 1931 1074">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.683" y2="1.036" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d0d0d0"/>
+      <stop offset="0.419" stop-color="#ccc"/>
+      <stop offset="0.519" stop-color="#cdcdcd"/>
+      <stop offset="0.906" stop-color="#787878"/>
+      <stop offset="0.936" stop-color="#6e6e6e"/>
+      <stop offset="0.966" stop-color="#636363"/>
+      <stop offset="1" stop-color="#575757"/>
+    </linearGradient>
+    <filter id="Rectangle_8" x="1354.975" y="277.948" width="90.049" height="118.104" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_9" x="1344.3" y="454.435" width="112.262" height="100.14" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="1931" height="1074"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" clip-path="url(#clip-Web_1920_1)">
+    <rect width="1931" height="1074" fill="#6cb9b6"/>
+    <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(294 25.583)">
+      <g id="Rectangle_15" data-name="Rectangle 15" transform="translate(1013.076 922.67) rotate(-24)" fill="#645b5b" stroke="#707070" stroke-width="1">
+        <rect width="27" height="109" stroke="none"/>
+        <rect x="0.5" y="0.5" width="26" height="108" fill="none"/>
+      </g>
+      <g id="Rectangle_12" data-name="Rectangle 12" transform="matrix(0.899, 0.438, -0.438, 0.899, 300.188, 0)" fill="#645b5b" stroke="#707070" stroke-width="1">
+        <rect width="24" height="155" stroke="none"/>
+        <rect x="0.5" y="0.5" width="23" height="154" fill="none"/>
+      </g>
+      <g id="Path_1" data-name="Path 1" transform="translate(0 95.417)" fill="#fff">
+        <path d="M0,0H0Z" stroke="none"/>
+        <path d="M 0 0 L 1343 0 L 0 0 Z" stroke="none" fill="#707070"/>
+      </g>
+      <g id="Rectangle_14" data-name="Rectangle 14" transform="matrix(0.921, 0.391, -0.391, 0.921, 234.444, 908.525)" fill="#645b5b" stroke="#707070" stroke-width="1">
+        <rect width="27" height="109" stroke="none"/>
+        <rect x="0.5" y="0.5" width="26" height="108" fill="none"/>
+      </g>
+      <g id="Rectangle_11" data-name="Rectangle 11" transform="matrix(0.819, -0.574, 0.574, 0.819, 147.718, 23.316)" fill="#645b5b" stroke="#707070" stroke-width="1">
+        <rect width="24" height="155" stroke="none"/>
+        <rect x="0.5" y="0.5" width="23" height="154" fill="none"/>
+      </g>
+      <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(30 143.417)" fill="#fc950a" stroke="#707070" stroke-width="1">
+        <rect width="1231" height="765" rx="50" stroke="none"/>
+        <rect x="0.5" y="0.5" width="1230" height="764" rx="49.5" fill="none"/>
+      </g>
+      <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(51 159.417)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="1187" height="731" rx="50" stroke="none"/>
+        <rect x="0.5" y="0.5" width="1186" height="730" rx="49.5" fill="none"/>
+      </g>
+      <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(58 165.417)" stroke="#707070" stroke-width="1" fill="url(#linear-gradient)">
+        <rect width="1170" height="719" rx="50" stroke="none"/>
+        <rect x="0.5" y="0.5" width="1169" height="718" rx="49.5" fill="none"/>
+      </g>
+      <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(987 185.417)" fill="rgba(255,255,255,0)" stroke="#000" stroke-width="5">
+        <rect width="219" height="677" rx="50" stroke="none"/>
+        <rect x="2.5" y="2.5" width="214" height="672" rx="47.5" fill="none"/>
+      </g>
+      <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(1020 227.417)" fill="rgba(255,255,255,0)" stroke="#000" stroke-width="15">
+        <ellipse cx="77" cy="74.5" rx="77" ry="74.5" stroke="none"/>
+        <ellipse cx="77" cy="74.5" rx="69.5" ry="67" fill="none"/>
+      </g>
+      <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(1048 255.417)" fill="#fc950a" stroke="#707070" stroke-width="1">
+        <ellipse cx="48.5" cy="47" rx="48.5" ry="47" stroke="none"/>
+        <ellipse cx="48.5" cy="47" rx="48" ry="46.5" fill="none"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -294, -25.58)" filter="url(#Rectangle_8)">
+        <g id="Rectangle_8-2" data-name="Rectangle 8" transform="translate(1354.98 288.76) rotate(-31)" fill="#818181" stroke="#707070" stroke-width="1">
+          <rect width="21" height="103" stroke="none"/>
+          <rect x="0.5" y="0.5" width="20" height="102" fill="none"/>
+        </g>
+      </g>
+      <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(1155.439 380.116) rotate(79)" fill="rgba(255,255,255,0)" stroke="#000" stroke-width="15">
+        <ellipse cx="77" cy="74.5" rx="77" ry="74.5" stroke="none"/>
+        <ellipse cx="77" cy="74.5" rx="69.5" ry="67" fill="none"/>
+      </g>
+      <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1048 423.417)" fill="#fc950a" stroke="#707070" stroke-width="1">
+        <ellipse cx="48.5" cy="47" rx="48.5" ry="47" stroke="none"/>
+        <ellipse cx="48.5" cy="47" rx="48" ry="46.5" fill="none"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -294, -25.58)" filter="url(#Rectangle_9)">
+        <g id="Rectangle_9-2" data-name="Rectangle 9" transform="translate(1424.35 454.43) rotate(51)" fill="#818181" stroke="#707070" stroke-width="1">
+          <rect width="21" height="103" stroke="none"/>
+          <rect x="0.5" y="0.5" width="20" height="102" fill="none"/>
+        </g>
+      </g>
+      <line id="Line_1" data-name="Line 1" x2="154" transform="translate(1020.5 766.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <line id="Line_2" data-name="Line 2" x2="154" transform="translate(1020.5 735.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <line id="Line_3" data-name="Line 3" x2="154" transform="translate(1020.5 704.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <line id="Line_4" data-name="Line 4" x2="154" transform="translate(1020.5 673.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <line id="Line_5" data-name="Line 5" x2="154" transform="translate(1019.5 642.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <line id="Line_6" data-name="Line 6" x2="154" transform="translate(1020.5 611.917)" fill="none" stroke="#2f2f2f" stroke-width="20"/>
+      <g id="Rectangle_10" data-name="Rectangle 10" transform="translate(90 186.417)" fill="rgba(255,255,255,0.08)" stroke="#000" stroke-width="10">
+        <rect width="871" height="677" rx="50" stroke="none"/>
+        <rect x="5" y="5" width="861" height="667" rx="45" fill="none"/>
+      </g>
+      <g id="Rectangle_13" data-name="Rectangle 13" transform="translate(146 911.417)" fill="#d57f0b" stroke="#707070" stroke-width="1">
+        <path d="M0,0H998a0,0,0,0,1,0,0V0a26,26,0,0,1-26,26H26A26,26,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+        <path d="M.75.5h996.5a.25.25,0,0,1,.25.25v0A24.75,24.75,0,0,1,972.75,25.5H25.25A24.75,24.75,0,0,1,.5.75v0A.25.25,0,0,1,.75.5Z" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
