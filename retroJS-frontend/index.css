@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.content{
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+    position: relative;
+    z-index: 100;
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+canvas{
+    position: relative;
+    top: 160px;
+    left: 285px;
+    border-radius: 8%;
+}
