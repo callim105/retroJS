@@ -234,9 +234,6 @@ class Pong
     }
     
 }
-// Initializes new canvas and instance of the Pong Class with canvas element 
-const canvas = document.getElementById('pong')
-const pong = new Pong(canvas)
 
 // KEY CODES
 // w = 87
@@ -293,3 +290,5 @@ const handleKeyUp = (event) => {
 
 document.onkeydown = handleKeyDown
 document.onkeyup = handleKeyUp
+
+

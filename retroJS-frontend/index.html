@@ -4,27 +4,37 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>RetroJS</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="index.css"/>
     <script defer type="text/javascript" src="pong.js"></script>
+    <script defer type="text/javascript" src="start.js"></script>
     <script defer type="text/javascript" src="fetch.js"></script>
 </head>
 <body>
 <div class="wrapper">
 	<div class="content">
+        <div id="start-container">
+            <h1 class="title">PONG</h1>
+            <form id="start-form">
+                <label>Player 1<label>
+                <input id="p1username" type="text" placeholder="Player 1" label="Player 1">
+                <br>
+                <label>Player 2</label>
+                <input id="p2username" type="text" placeholder="Player 2" label="Player 2">
+                <br>
+                <br>
+                <button class="option-button">Scores</button>
+                <input type="submit" value="PLAY">
+                <button class="option-button">Settings</button>
+            </form>
+        </div>
+        <!-- <canvas id="start" width="650" height="500"></canvas> -->
 		<canvas id="pong" width="650" height="500"></canvas>
 	</div>
 	<div class="background">
 		<img src="oldschooltv.svg" width="1440" height="800">
-	</div>
-	<div>
-        <form>
-            <label>Player 1 ID</label>
-            <input id="p1ID" type="text"><br>
-            <label>Player 2 ID</label>
-            <input id="p2ID" type="text"><br>
-            <input type="submit">
-        </form>
     </div>
+    
 </div>
 </body>
 </html>
