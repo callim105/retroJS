@@ -1,32 +1,33 @@
 // Initializes new canvas and instance of the Pong Class with canvas element 
-
 const canvas = document.getElementById('pong')
-const pong = new Pong(canvas)
-canvas.style.display = "none"
-const startForm = document.getElementById("start-form")
-const playButton = startForm.querySelector("input[type=submit]")
-const startContainer = document.getElementById("start-container")
+const endContainer = document.getElementById("end-container")
 
-startForm.addEventListener("submit",(event)=>{
+const startForm = document.getElementById("start-form")
+const playButton = document.getElementById("play-button")
+const startContainer = document.getElementById("start-container")
+const playerOneInput = document.getElementById("p1username")
+const playerTwoInput = document.getElementById("p2username")
+const scoreButton = document.getElementById("score-button")
+const settingsButton = document.getElementById("settings-button")
+
+// Hiding Start Elements
+canvas.style.display = "none"
+
+playButton.addEventListener("click",(event)=>{
     event.preventDefault()
+    console.log(playerOneInput.value)
+    console.log(playerTwoInput.value)
     canvas.style.display = "block"
     startContainer.style.display = "none"
-    
+    const pong = new Pong(canvas, endContainer)
 })
 
-// const startCanvas = document.getElementById("start")
-// const startctx = startCanvas.getContext("2d")
+scoreButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    console.log("SCORES")
+})
 
-// startctx.fillStyle = "black"
-// startctx.fillRect(0, 0, startCanvas.width, startCanvas.height)
-
-// const title = (title)=>{
-//     startctx.font = "100px Georgia"
-//     startctx.fillStyle = "white"
-//     startctx.textAlign = "center"
-//     startctx.fillText(title, (startCanvas.width/2), (startCanvas.height/3))
-// }
-
-// title("PONG")
-
-// startCanvas.style.display = "none"
+settingsButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    console.log("SETINGS")
+})

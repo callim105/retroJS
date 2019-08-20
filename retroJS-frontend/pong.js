@@ -46,11 +46,12 @@ class Player extends Rect
     constructor(w, h) {
         super(w, h)
         this.score = 0
+        // this.username = username
     }
 }
 class Pong
 {
-    constructor(canvas)
+    constructor(canvas, endContainer)
     {
         // creates the canvas for pong
         this._canvas = canvas
@@ -68,7 +69,7 @@ class Pong
             new Player(8, 70),
             new Player(8, 70),
         ]
-      
+        this.winner
         // Sets starting position of both players paddles
         this.players[0].pos.x = 40
         this.players[1].pos.x = this._canvas.width - 40
@@ -76,22 +77,33 @@ class Pong
             player.pos.y = this._canvas.height / 2
         })
         
+        let myReq
         let lastTime // used for callback animation
         const callback = (millis) => {
             // millis is special word counts milliseconds since page load
-            if (lastTime) {
-                this.update((millis - lastTime) / 1000)
+            if (!this.winner) {
+                if (lastTime) {
+                    this.update((millis - lastTime) / 1000)
+                }
+                lastTime = millis
+                myReq = requestAnimationFrame(callback)
+                // On game completion, stops the ball movement
+                // Will need to take this final score with the fetch PATCH request 
+                if (this.players[0].score === 1 || this.players[1].score === 1) {
+                    this.ball.vel.x = 0
+                    this.ball.vel.y = 0
+                    // Decides the winner
+                    this.players[0].score > this.players[1].score ? this.winner = this.players[0] : this.winner = this.players[1]
+                    cancelAnimationFrame(myReq)
+                    // Add sleep timer
+                    this._canvas.style.display = "none"
+                    // this._canvas.remove()
+                    // const endContainer = document.getElementById("end-container")
+                    endContainer.style.display = 'block'
+                    gameOver = !gameOver
+                    console.log(gameOver)
+                }
             }
-            lastTime = millis
-            requestAnimationFrame(callback)
-            // On game completion, stops the ball movement
-            // Will need to take this final score with the fetch PATCH request 
-            if (this.players[0].score === 10 || this.players[1].score === 10) {
-                this.ball.vel.x = 0
-                this.ball.vel.y = 0
-                // this.ball.fillStyle = '#000'
-            }
-
         }
         callback()
     }
@@ -145,7 +157,7 @@ class Pong
         this._ctx.stroke()
         
         // Draws Player 1 (Left Paddle Score)
-        this._ctx.font = '50px georgia'
+        this._ctx.font = '50px courier new'
         this._ctx.fillText(
             this.players[0].score,
             (this._canvas.width / 4),
@@ -158,7 +170,7 @@ class Pong
             75
         )
         if (!startGame) {
-            this._ctx.font = '100px georgia'
+            this._ctx.font = '100px Press Start 2P'
             this._canvas.fillStyle = '#FFFFFF'
             this._ctx.textAlign = 'center'
             this._ctx.fillText(
@@ -248,6 +260,8 @@ let paddleDownA = false
 let paddleUpB = false
 let paddleDownB = false
 let startGame = false
+let gameOver = false
+
 
 // Event Handlers
 const handleKeyDown = (event) => {
@@ -290,5 +304,3 @@ const handleKeyUp = (event) => {
 
 document.onkeydown = handleKeyDown
 document.onkeyup = handleKeyUp
-
-
