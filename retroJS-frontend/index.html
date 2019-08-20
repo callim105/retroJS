@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="index.css"/>
     <script defer type="text/javascript" src="pong.js"></script>
     <script defer type="text/javascript" src="start.js"></script>
+    <script defer type="text/javascript" src="gameover.js"></script>
     <script defer type="text/javascript" src="fetch.js"></script>
 </head>
 <body>
@@ -23,13 +24,21 @@
                 <input id="p2username" type="text" placeholder="Player 2" label="Player 2">
                 <br>
                 <br>
-                <button class="option-button">Scores</button>
-                <input type="submit" value="PLAY">
-                <button class="option-button">Settings</button>
+                <button class="option-button" id="score-button">SCORES</button>
+                <!-- <input type="submit" value="PLAY"> -->
+                <button class="option-button" id="play-button">PLAY</button>
+                <button class="option-button" id="settings-button">SETTINGS</button>
             </form>
         </div>
+
+        <canvas id="pong" width="650" height="500"></canvas>
         
-		<canvas id="pong" width="650" height="500"></canvas>
+        <div id="end-container">
+            <h1 class="title">GAME OVER</h1>        
+            <button class="option-button" id="end-score-button">SCORES</button>
+            <button class="option-button" id="rematch-button">REMATCH</button>                
+            <button class="option-button" id="new-game-button">NEWGAME</button>                
+        </div>
 	</div>
 	<div class="background">
 		<img src="oldschooltv.svg" width="1440" height="800">
