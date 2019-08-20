@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
     end
     
     def create
-        player = Player.create(username: params[:username])
+        player = Player.find_or_create_by(username: params[:username])
         render json: player
     end
 
