@@ -1,6 +1,18 @@
 // Initializes new canvas and instance of the Pong Class with canvas element 
-const pongCanvas = document.getElementById('pong')
-const pong = new Pong(pongCanvas)
+
+const canvas = document.getElementById('pong')
+const pong = new Pong(canvas)
+canvas.style.display = "none"
+const startForm = document.getElementById("start-form")
+const playButton = startForm.querySelector("input[type=submit]")
+const startContainer = document.getElementById("start-container")
+
+startForm.addEventListener("submit",(event)=>{
+    event.preventDefault()
+    canvas.style.display = "block"
+    startContainer.style.display = "none"
+    
+})
 
 // const startCanvas = document.getElementById("start")
 // const startctx = startCanvas.getContext("2d")
@@ -16,5 +28,5 @@ const pong = new Pong(pongCanvas)
 // }
 
 // title("PONG")
-pongCanvas.style.display = "none"
+
 // startCanvas.style.display = "none"
