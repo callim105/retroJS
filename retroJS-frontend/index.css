@@ -25,3 +25,49 @@ canvas{
     left: 285px;
     border-radius: 8%;
 }
+
+.title{
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Press Start 2P', cursive;
+    margin-block-end: 0.3em;
+}
+
+
+#start-container{
+    width: 520px;
+    height: 380px;
+    border: 10px solid black;
+    background-color: black;
+    padding: 50px 50px 50px 50px;
+    margin: 160px 290px;
+    border-radius: 5%
+}
+
+#start-form{
+    font-family:'Press Start 2P', cursive;
+}
+
+/* input */
+input{
+    width: 25%;
+    border-radius: 10%;
+}
+
+input[type=submit]{
+    text-align: center;
+    background-color: white;
+    width: 8em;
+    height: 6em;
+    border-radius: 0%;
+    font-family:'Press Start 2P', cursive;
+}
+
+.option-button{
+    text-align: center;
+    background-color: white;
+    width: 9em;
+    height: 3.5em;
+    border-radius: 0%;
+    font-family:'Press Start 2P', cursive;
+}
