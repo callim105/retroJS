@@ -170,7 +170,7 @@ class Pong
             75
         )
         if (!startGame) {
-            this._ctx.font = '100px Press Start 2P'
+            this._ctx.font = '100px georgia'
             this._canvas.fillStyle = '#FFFFFF'
             this._ctx.textAlign = 'center'
             this._ctx.fillText(

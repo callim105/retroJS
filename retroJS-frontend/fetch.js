@@ -1,7 +1,5 @@
 const gameURL = 'http://localhost:3000/games'
 const playerURL = 'http://localhost:3000/players'
-let player1name = document.getElementById("p1ID")
-let player2name = document.getElementById("p2ID")
 let allGamesArray = []
 
 const newGame = ()=>{
@@ -36,13 +34,6 @@ const updateGame = ()=>{
     .then(res => res.json())
     .then(console.log)
 }
-// player_1_obj = {
-//     id: 1,
-//     username: steave,
-//     wins: 2,
-//     losses: 51,
-//     points: 78
-// }
 
 const updatePlayer = () => {
     let game = allGamesArray.slice(-1)[0]
@@ -101,8 +92,8 @@ const getGames = ()=>{
         allGamesArray.push(game)
     }))
 }
-const fetchInit = () => {
-    getGames()
-    getPlayers()
-}
-fetchInit()
+// const fetchInit = () => {
+//     getGames()
+//     getPlayers()
+// }
+// fetchInit()
