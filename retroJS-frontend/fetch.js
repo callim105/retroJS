@@ -1,5 +1,3 @@
-const gameURL = 'http://localhost:3000/games'
-const playerURL = 'http://localhost:3000/players'
 let allGamesArray = []
 
 const newGame = ()=>{
@@ -79,11 +77,15 @@ const updatePlayer = () => {
     .then(json => console.log(json))
 }
 
-const getPlayers = () => {
-    fetch(playerURL)
-    .then(res => res.json())
-    .then(console.log)
-}
+// const getPlayers = () => {
+//     fetch(playerURL)
+//     .then(res => res.json())
+//     .then(players => {
+//         // debugger
+//         players.forEach(player => playersList.push(player))
+//         displayScores(playersList.sort((a , b) => (a.points > b.points) ? -1 : 1))
+//     })
+// }
 const getGames = ()=>{
     fetch(gameURL)
     .then(res => res.json())
@@ -92,6 +94,7 @@ const getGames = ()=>{
         allGamesArray.push(game)
     }))
 }
+// getPlayers()
 // const fetchInit = () => {
 //     getGames()
 //     getPlayers()

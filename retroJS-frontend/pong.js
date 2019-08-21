@@ -132,10 +132,7 @@ class Pong
                     this._canvas.style.display = "none"
                     // this._canvas.remove()
                     // const endContainer = document.getElementById("end-container")
-                    endContainer.style.display = 'block'
-                    // playerOneStats = { points: this.players[0].score }
-                    // playerOneStats = Object.assign({}, this.players[0])
-                    
+                    endContainer.style.display = 'block'                    
                 }
             }
         }

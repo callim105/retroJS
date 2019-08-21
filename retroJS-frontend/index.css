@@ -55,6 +55,21 @@ canvas{
     text-align: center;
 }
 
+#score-container{
+    font-family:'Press Start 2P', cursive;
+    display: block;
+    width: 520px;
+    height: 380px;
+    border: 10px solid black;
+    background-color: black;
+    border-style: double;
+    border-color: #FFFFFF;
+    padding: 50px 50px 50px 50px;
+    margin: 160px 290px;
+    border-radius: 5%;
+    text-align: center;
+}
+
 #start-form{
     font-family:'Press Start 2P', cursive;
 }
@@ -82,4 +97,25 @@ input[type=submit]{
     height: 3.5em;
     border-radius: 0%;
     font-family:'Press Start 2P', cursive;
+}
+
+#score-list {
+    /* display: inline-block; */
+    width: 100%;
+    height: 75%;
+    margin-block-end: 0em;
+    /* float: left; */
+    text-align: center;
+}
+
+li {
+    padding: 2px;
+    margin: 2.5px;
+    font-size: 75%;
+    text-align: left;
+    margin-block-end: 0em;
+}
+
+#back-button {
+    margin-bottom: 300px;
 }
