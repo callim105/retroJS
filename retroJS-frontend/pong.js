@@ -1,5 +1,5 @@
 
-
+// Sound effects
 let hitsound = new Audio()
 hitsound.src = './audio/Beep1.wav';
 let wallbouncesound = new Audio()
@@ -74,14 +74,19 @@ class Player extends Rect
 }
 class Pong
 {
-    constructor(canvas, endContainer, playerOne, playerTwo)
+    constructor(canvas, endContainer, playerOne, playerTwo, incrementalSpeed = 50, ballSize = 10, paddleLength = 70)
     {
+        //pong settings
+        this.incrementalSpeed = incrementalSpeed;
+        this.ballSize = ballSize;
+        this.paddleLength = paddleLength;
+        
         // creates the canvas for pong
         this._canvas = canvas
         this._ctx = canvas.getContext('2d')
         
         // Creates the Ball element w/starting Position and Velocity
-        this.ball = new Ball(10, 10)
+        this.ball = new Ball(this.ballSize, this.ballSize)
         // Assign random launch direction
         this.resetBall()
         this.ball.vel.x = Math.random() < .5 ? -200 : 200
@@ -89,8 +94,8 @@ class Pong
 
         // Creates the Players (Player 1: [0], Player 2: [1])
         this.players = [
-            new Player(8, 70),
-            new Player(8, 70),
+            new Player(8, this.paddleLength),
+            new Player(8, this.paddleLength),
         ]
         this.winner
         // Sets starting position of both players paddles
@@ -123,37 +128,37 @@ class Pong
                     //Assign game stats to player objects
                     cancelAnimationFrame(myReq)
                     
-                    fetch(playerURL + "/" + playerOne.id,{
-                        method:"PATCH",
-                        headers:{
-                            "content-type":"application/json",
-                            "accept":"application/json"
-                        },
-                        body:JSON.stringify({
-                            wins: this.winner ? ++playerOne.wins : playerOne.wins,
-                            losses: this.winner ? playerOne.losses : ++playerOne.losses,
-                            points: playerOne.points + this.players[0].score
-                        })
-                    })
-                    .then(res => res.json())
-                    .then(player => {
-                        fetch(playerURL + "/" + playerTwo.id,{
-                            method:"PATCH",
-                            headers:{
-                                "content-type":"application/json",
-                                "accept":"application/json"
-                            },
-                            body:JSON.stringify({
-                                wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
-                                losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
-                                points: playerTwo.points + this.players[1].score
+                    const patchData = async () => {
+                        
+                        try{
+                            const playerOnePatch = await fetch(playerURL + "/" + playerOne.id,{
+                                method:"PATCH",
+                                headers:{
+                                    "content-type":"application/json",
+                                    "accept":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    wins: this.winner ? ++playerOne.wins : playerOne.wins,
+                                    losses: this.winner ? playerOne.losses : ++playerOne.losses,
+                                    points: playerOne.points + this.players[0].score
+                                })
                             })
-                        })
-                        .then(res => res.json())
-                        .then(console.log)})
-
-                    
-                    
+                        
+                            const playerTwoPatch = await fetch(playerURL + "/" + playerTwo.id,{
+                                method:"PATCH",
+                                headers:{
+                                    "content-type":"application/json",
+                                    "accept":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
+                                    losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
+                                    points: playerTwo.points + this.players[1].score
+                                })
+                            })
+                        } catch(err){console.error(err)}
+                    }
+                    patchData()
                     this._canvas.style.display = "none"
                     // this._canvas.remove()
                     // const endContainer = document.getElementById("end-container")
@@ -183,11 +188,11 @@ class Pong
         {
             soundObj.hit.play()
             if (ball.vel.x > 0) {
-                ball.vel.x += 50
-                ball.vel.y += 50
+                ball.vel.x += this.incrementalSpeed
+                ball.vel.y += this.incrementalSpeed
             } else {
-                ball.vel.x -= 50
-                ball.vel.y -= 50
+                ball.vel.x -= this.incrementalSpeed
+                ball.vel.y -= this.incrementalSpeed
             }
             ball.vel.x = -ball.vel.x
             // console.log(ball.vel.x)
