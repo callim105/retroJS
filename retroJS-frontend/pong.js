@@ -51,14 +51,14 @@ class Player extends Rect
 }
 class Pong
 {
-    constructor(canvas, endContainer)
+    constructor(canvas, endContainer, playerOne, playerTwo)
     {
         // creates the canvas for pong
         this._canvas = canvas
         this._ctx = canvas.getContext('2d')
         
         // Creates the Ball element w/starting Position and Velocity
-        this.ball = new Ball(7, 7)
+        this.ball = new Ball(10, 10)
         // Assign random launch direction
         this.resetBall()
         this.ball.vel.x = Math.random() < .5 ? -200 : 200
@@ -93,15 +93,49 @@ class Pong
                     this.ball.vel.x = 0
                     this.ball.vel.y = 0
                     // Decides the winner
-                    this.players[0].score > this.players[1].score ? this.winner = this.players[0] : this.winner = this.players[1]
+                    // this.winner? true, then player 1 wins
+                    this.players[0].score > this.players[1].score ? this.winner = true : this.winner = false
+                    //Assign game stats to player objects
                     cancelAnimationFrame(myReq)
-                    // Add sleep timer
+                    
+                    fetch(playerURL + "/" + playerOne.id,{
+                        method:"PATCH",
+                        headers:{
+                            "content-type":"application/json",
+                            "accept":"application/json"
+                        },
+                        body:JSON.stringify({
+                            wins: this.winner ? ++playerOne.wins : playerOne.wins,
+                            losses: this.winner ? playerOne.losses : ++playerOne.losses,
+                            points: playerOne.points + this.players[0].score
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(player => {
+                        fetch(playerURL + "/" + playerTwo.id,{
+                            method:"PATCH",
+                            headers:{
+                                "content-type":"application/json",
+                                "accept":"application/json"
+                            },
+                            body:JSON.stringify({
+                                wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
+                                losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
+                                points: playerTwo.points + this.players[1].score
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(console.log)})
+
+                    
+                    
                     this._canvas.style.display = "none"
                     // this._canvas.remove()
                     // const endContainer = document.getElementById("end-container")
                     endContainer.style.display = 'block'
-                    gameOver = !gameOver
-                    console.log(gameOver)
+                    // playerOneStats = { points: this.players[0].score }
+                    // playerOneStats = Object.assign({}, this.players[0])
+                    
                 }
             }
         }
