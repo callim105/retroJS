@@ -70,6 +70,19 @@ canvas{
     text-align: center;
 }
 
+#settings-container{
+    font-family:'Press Start 2P', cursive;
+    display: block;
+    width: 520px;
+    height: 380px;
+    border: 10px solid black;
+    background-color: black;
+    padding: 50px 50px 50px 50px;
+    margin: 160px 290px;
+    border-radius: 5%;
+    text-align: center;
+}
+
 #start-form{
     font-family:'Press Start 2P', cursive;
 }
@@ -88,6 +101,10 @@ input[type=submit]{
     height: 6em;
     border-radius: 0%;
     font-family:'Press Start 2P', cursive;
+}
+
+input[type=radio]{
+    color: white;
 }
 
 .option-button{
@@ -118,4 +135,30 @@ li {
 
 #back-button {
     margin-bottom: 300px;
+}
+
+.radioLabels{
+    font-size: 10px;
+}
+
+#ballSizeContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:left;
+}
+
+#paddleSizeContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:left;
+}
+
+#difficultyContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:left;
+    padding-left: 15px;
 }
