@@ -128,37 +128,37 @@ class Pong
                     //Assign game stats to player objects
                     cancelAnimationFrame(myReq)
                     
-                    fetch(playerURL + "/" + playerOne.id,{
-                        method:"PATCH",
-                        headers:{
-                            "content-type":"application/json",
-                            "accept":"application/json"
-                        },
-                        body:JSON.stringify({
-                            wins: this.winner ? ++playerOne.wins : playerOne.wins,
-                            losses: this.winner ? playerOne.losses : ++playerOne.losses,
-                            points: playerOne.points + this.players[0].score
-                        })
-                    })
-                    .then(res => res.json())
-                    .then(player => {
-                        fetch(playerURL + "/" + playerTwo.id,{
-                            method:"PATCH",
-                            headers:{
-                                "content-type":"application/json",
-                                "accept":"application/json"
-                            },
-                            body:JSON.stringify({
-                                wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
-                                losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
-                                points: playerTwo.points + this.players[1].score
+                    const patchData = async () => {
+                        
+                        try{
+                            const playerOnePatch = await fetch(playerURL + "/" + playerOne.id,{
+                                method:"PATCH",
+                                headers:{
+                                    "content-type":"application/json",
+                                    "accept":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    wins: this.winner ? ++playerOne.wins : playerOne.wins,
+                                    losses: this.winner ? playerOne.losses : ++playerOne.losses,
+                                    points: playerOne.points + this.players[0].score
+                                })
                             })
-                        })
-                        .then(res => res.json())
-                        .then(console.log)})
-
-                    
-                    
+                        
+                            const playerTwoPatch = await fetch(playerURL + "/" + playerTwo.id,{
+                                method:"PATCH",
+                                headers:{
+                                    "content-type":"application/json",
+                                    "accept":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
+                                    losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
+                                    points: playerTwo.points + this.players[1].score
+                                })
+                            })
+                        } catch(err){console.error(err)}
+                    }
+                    patchData()
                     this._canvas.style.display = "none"
                     // this._canvas.remove()
                     // const endContainer = document.getElementById("end-container")
