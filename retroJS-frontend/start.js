@@ -27,7 +27,7 @@ let players
 playButton.addEventListener("click",(event)=>{
     event.preventDefault()
     players = []
-    
+    soundObj.background.play()
     //this is disgusting, pls fix.
     fetch(playerURL, {
         method: "POST",
