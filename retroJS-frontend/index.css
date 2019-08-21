@@ -72,7 +72,7 @@ canvas{
 
 #settings-container{
     font-family:'Press Start 2P', cursive;
-    display: none;
+    display: block;
     width: 520px;
     height: 380px;
     border: 10px solid black;
@@ -161,4 +161,50 @@ li {
     text-align: right;
     float:left;
     padding-left: 15px;
+}
+
+#ballColorListContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:right;
+    padding-left: 15px;
+    margin-top: 10px;
+    margin-right: 400px;
+}
+
+#paddleColorListContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:right;
+    padding-left: 15px;
+    margin-top: -50px;
+    margin-right: 280px;
+}
+#backgroundColorListContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:right;
+    padding-left: 15px;
+    margin-top: -50px;
+    margin-right: 130px;
+}
+#netColorListContainer{
+    font-size: 15px;
+    width: 25%;
+    text-align: right;
+    float:right;
+    padding-left: 15px;
+    margin-top: -50px;
+    margin-right: 0px;
+}
+
+
+#saveButtonContainer{
+    display:block;
+    text-align: center;
+    margin-top: 300px;
+
 }
