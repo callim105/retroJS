@@ -72,7 +72,7 @@ canvas{
 
 #settings-container{
     font-family:'Press Start 2P', cursive;
-    display: block;
+    display: none;
     width: 520px;
     height: 380px;
     border: 10px solid black;
