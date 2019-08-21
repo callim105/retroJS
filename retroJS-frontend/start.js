@@ -13,7 +13,7 @@ const playerOneInput = document.getElementById("p1username")
 const playerTwoInput = document.getElementById("p2username")
 const scoreButton = document.getElementById("score-button")
 const settingsButton = document.getElementById("settings-button")
-
+const scoreFromSettings = document.getElementById("scoresFromSettings")
 // Hiding Start Elements
 canvas.style.display = "none"
 scoreContainer.style.display = "none"
@@ -84,4 +84,12 @@ settingsButton.addEventListener('click', (event) => {
     console.log("SETINGS")
     startContainer.style.display = 'none'
     settingsContainer.style.display = 'block'
+})
+
+scoreFromSettings.addEventListener('click', (event) => {
+    event.preventDefault()
+    console.log("SCORES")
+    settingsContainer.style.display = "none"
+    scoreContainer.style.display = 'block'
+    getPlayers()
 })
