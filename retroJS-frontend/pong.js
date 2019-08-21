@@ -1,3 +1,10 @@
+
+let hitsound = new Audio()
+hitsound.src = './audio/Beep1.wav';
+let wallbouncesound = new Audio()
+wallbouncesound.src = './audio/Beep2.wav'
+
+
 class Vec
 {
     constructor(x = 0, y = 0)
@@ -156,6 +163,7 @@ class Pong
     {
         if (player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top)
         {
+            hitsound.play()
             if (ball.vel.x > 0) {
                 ball.vel.x += 50
                 ball.vel.y += 50
@@ -257,16 +265,19 @@ class Pong
     
         // Adds score to player 1
         if (this.ball.right > this._canvas.width) {
+            
             this.players[0].score++
             this.resetBall()
         }
         // Adds score to player 2 
         if (this.ball.left < 0) {
+            
             this.players[1].score++
             this.resetBall()
         }
         // Controls bounce off of top and bottom
         if (this.ball.top < 0 || this.ball.bottom > this._canvas.height) {
+            wallbouncesound.play()
             this.ball.vel.y = -this.ball.vel.y
         }
         // Calls collision method on paddles and ball

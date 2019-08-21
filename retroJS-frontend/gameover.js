@@ -33,15 +33,15 @@ const displayScores = (arr) => {
     scoreList.innerHTML = ''
     let limitArr = arr.slice(0,10)
     limitArr.forEach(player => {
-        let name = player.username.slice(0,12).toUpperCase()
-        for ( let i = name.length; i < 12; i++ ){
+        let name = player.username.slice(0,13).toUpperCase()
+        for ( let i = name.length; i < 13; i++ ){
             name = name + '-'
         }
         let points = player.points.toString().slice(0,4) 
         for ( let i = points.length; i < 4; i++ ){
             points = '-' + points
         }
-        let line = name + '----------' + points
+        let line = name + '---------' + points
         // console.log(line)
         let liTag = document.createElement("li")
         liTag.innerHTML = line
