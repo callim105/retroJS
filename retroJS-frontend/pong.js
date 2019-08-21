@@ -1,8 +1,24 @@
 
+
 let hitsound = new Audio()
 hitsound.src = './audio/Beep1.wav';
 let wallbouncesound = new Audio()
 wallbouncesound.src = './audio/Beep2.wav'
+let winSound = new Audio()
+winSound.src = './audio/FFVII_WIN.mp3'
+let backgroundMusic = new Audio()
+backgroundMusic.src = './audio/Tetris_background.mp3'
+let scoreSound = new Audio()
+scoreSound.src = './audio/Mario-coin-sound.mp3'
+let soundObj = {
+    hit: hitsound,
+    wallBounce: wallbouncesound,
+    win: winSound,
+    background: backgroundMusic,
+    score: scoreSound
+}
+
+
 
 
 class Vec
@@ -96,7 +112,9 @@ class Pong
                 myReq = requestAnimationFrame(callback)
                 // On game completion, stops the ball movement
                 // Will need to take this final score with the fetch PATCH request 
-                if (this.players[0].score === 1 || this.players[1].score === 1) {
+                if (this.players[0].score === 3 || this.players[1].score === 3) {
+                    soundObj.background.pause()
+                    soundObj.win.play()
                     this.ball.vel.x = 0
                     this.ball.vel.y = 0
                     // Decides the winner
@@ -163,7 +181,7 @@ class Pong
     {
         if (player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top)
         {
-            hitsound.play()
+            soundObj.hit.play()
             if (ball.vel.x > 0) {
                 ball.vel.x += 50
                 ball.vel.y += 50
@@ -265,19 +283,19 @@ class Pong
     
         // Adds score to player 1
         if (this.ball.right > this._canvas.width) {
-            
+            soundObj.score.play()
             this.players[0].score++
             this.resetBall()
         }
         // Adds score to player 2 
         if (this.ball.left < 0) {
-            
+            soundObj.score.play()
             this.players[1].score++
             this.resetBall()
         }
         // Controls bounce off of top and bottom
         if (this.ball.top < 0 || this.ball.bottom > this._canvas.height) {
-            wallbouncesound.play()
+            soundObj.wallBounce.play()
             this.ball.vel.y = -this.ball.vel.y
         }
         // Calls collision method on paddles and ball
