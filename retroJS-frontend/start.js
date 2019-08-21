@@ -18,23 +18,22 @@ canvas.style.display = "none"
 //     headers: { "content-type": "application/json", "accept": "application/json" },
 //     body: JSON.stringify(formData)
 // }
-
+let players
 playButton.addEventListener("click",(event)=>{
     event.preventDefault()
-    let idArray = []
-    let playersArray = [playerOneInput, playerTwoInput]
-    // playersArray.forEach(player => {
-        // Post Fetch Player 1
-        fetch(playerURL, {
-            method: "POST",
-            headers: { "content-type": "application/json", "accept": "application/json" },
-            body: JSON.stringify({
-                username: playerOneInput.value
-            })
+    players = []
+    
+    //this is disgusting, pls fix.
+    fetch(playerURL, {
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({
+            username: playerOneInput.value
         })
-        .then(res => res.json())
-        .then(player => idArray.push(player.id))
-
+    })
+    .then(res => res.json())
+    .then(player => {
+        players.push(player)
         // Post Fetch Player 2 w/ Post fetch of new game
         fetch(playerURL, {
             method: "POST",
@@ -45,23 +44,28 @@ playButton.addEventListener("click",(event)=>{
         })
         .then(res => res.json())
         .then(player => {
-            idArray.push(player.id)
+            players.push(player)
             fetch(gameURL, {
                 method: "POST",
                 headers: { "content-type": "application/json", "accept": "application/json" },
                 body: JSON.stringify({
-                    player_1_id: idArray[0],
-                    player_2_id: idArray[1]
+                    player_1_id: players[0].id,
+                    player_2_id: players[1].id
                 })
             })
             .then(res => res.json())
-            .then(console.log)
+            .then(player => {
+                const pong = new Pong(canvas, endContainer, players[0], players[1])
+            })
         })
-    // })
+    })
+
+
     
     canvas.style.display = "block"
     startContainer.style.display = "none"
-    const pong = new Pong(canvas, endContainer)
+    
+    
     // fetch post to Games with both player id's
     // fetch(gameURL, {
     //     method: "POST",
