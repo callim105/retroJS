@@ -74,7 +74,7 @@ class Player extends Rect
 }
 class Pong
 {
-    constructor(canvas, endContainer, playerOne, playerTwo, incrementalSpeed = 50, ballSize = 10, paddleLength = 70)
+    constructor(canvas, endContainer, playerOne, playerTwo, game, incrementalSpeed = 50, ballSize = 10, paddleLength = 70)
     {
         //pong settings
         this.incrementalSpeed = incrementalSpeed;
@@ -154,6 +154,19 @@ class Pong
                                     wins: this.winner ? playerTwo.wins : ++playerTwo.wins,
                                     losses: this.winner ? ++playerTwo.losses : playerTwo.losses,
                                     points: playerTwo.points + this.players[1].score
+                                })
+                            })
+
+                            const gamePatch = await fetch(gameURL + "/" + game.id,{
+                                method:"PATCH",
+                                headers:{
+                                    "content-type":"application/json",
+                                    "accept":"application/json"
+                                },
+                                body:JSON.stringify({
+                                    p1_score: this.players[0].score,
+                                    p2_score: this.players[1].score,
+                                    winner: this.winner ? playerOne.id : playerTwo.id
                                 })
                             })
                         } catch(err){console.error(err)}
