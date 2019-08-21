@@ -82,4 +82,6 @@ scoreButton.addEventListener('click', (event) => {
 settingsButton.addEventListener('click', (event) => {
     event.preventDefault()
     console.log("SETINGS")
+    startContainer.style.display = 'none'
+    settingsContainer.style.display = 'block'
 })
