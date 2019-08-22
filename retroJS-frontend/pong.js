@@ -258,7 +258,12 @@ class Pong
                 (this._canvas.width / 2),
                 (this._canvas.height / 2)
             )
-            // add flicker
+            this._ctx.font = '35px courier new'
+            this._ctx.fillText('Controls', (this._canvas.width / 2), (this._canvas.height / 2 + 150))
+            this._ctx.font = '20px courier new'
+            this._ctx.fillText("Player 1: W / S", (this._canvas.width / 3), (this._canvas.height / 2 + 180))
+            this._ctx.fillText("Player 2: P / ;", (this._canvas.width*2 / 3), (this._canvas.height / 2 + 180))
+            this._ctx.fillText("Press Space to Pause", (this._canvas.width / 2), (this._canvas.height / 2 + 210))
         }
         
     }
