@@ -35,8 +35,7 @@
         
         <div id="end-container">
             <h1 class="title">GAME OVER</h1>        
-            <button class="option-button" id="end-score-button">SCORES</button>
-                           
+            <button class="option-button" id="end-score-button">SCORES</button>    
             <button class="option-button" id="new-game-button">NEWGAME</button>                
         </div>
 
@@ -79,6 +78,17 @@
                     <label class="radioLabels" for="epic">EPIC
                     <input type="radio" name="difficulty" id="epic" value="200"></label>
             </div>
+            
+            <div id="audioPresetContainer">
+                <label for="audio-preset">AUDIO</label>
+                <select id="audio-preset">
+                    <option value="default">DEFAULT</option>
+                    <option value="mario">MARIO</option>
+                    <option value="zelda">ZELDA</option>
+                    <option value="sonic">SONIC</option>
+                </select>
+            </div>
+
             <div id="ballColorListContainer">
                 <label for="ballColor">Ball Color</label>
                 <select id="ballColor">
@@ -119,6 +129,7 @@
                         <option value="GREEN">GREEN</option>
                     </select>
             </div>
+
             <div id="saveButtonContainer">
                 <button id="saveButton" class="option-button">Save</button>
                 <button id="scoresFromSettings" class="option-button">Scores</button>
