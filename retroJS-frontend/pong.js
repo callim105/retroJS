@@ -121,7 +121,7 @@ class Pong
                 myReq = requestAnimationFrame(callback)
                 // On game completion, stops the ball movement
                 // Will need to take this final score with the fetch PATCH request 
-                if (this.players[0].score === 3 || this.players[1].score === 3) {
+                if (this.players[0].score === 5 || this.players[1].score === 5) {
                     soundObj.background.pause()
                     soundObj.win.play()
                     this.ball.vel.x = 0
