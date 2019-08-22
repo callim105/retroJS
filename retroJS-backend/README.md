@@ -1,24 +1,39 @@
-# README
+# RetroJS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+RetroJS is a Pong game that was created using HTML Canvas, JavaScript, CSS, and Ruby on Rails for our backend API.
 
-Things you may want to cover:
+Created By: Christian Lim and Phil Roth
 
-* Ruby version
+## Installation
 
-* System dependencies
+Clone the repo, then in terminal navigate to the backend folder
+```bash
+cd retroJS-backend
+```
+Then run 
+```bash
+bundle install
+```
+Now, you need to migrate the database
+```bash
+rails db:migrate
+```
 
-* Configuration
+## Usage
+The Rails server must be running for the game to work.
+```Ruby
+rails s
+```
+After the server is running, open the index.html file in your browser.
+## Controls
+Player 1: Up = Press w, Down = Press s
 
-* Database creation
+Player 2: Up = Press p, Down = Press ;
 
-* Database initialization
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* How to run the test suite
+Please make sure to update tests as appropriate.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
