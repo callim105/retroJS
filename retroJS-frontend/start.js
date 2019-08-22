@@ -61,7 +61,7 @@ playButton.addEventListener("click", async (event)=>{
                             })
                             .then(res => res.json())
     
-    let pong = new Pong(canvas, endContainer, players[0], players[1], game)
+    let pong = new Pong(canvas, endContainer, players[0], players[1], game, settingsObj)
     
     canvas.style.display = "block"
     startContainer.style.display = "none"

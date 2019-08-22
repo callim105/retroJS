@@ -37,7 +37,7 @@
         <div id="end-container">
             <h1 class="title">GAME OVER</h1>        
             <button class="option-button" id="end-score-button">SCORES</button>
-            <button class="option-button" id="rematch-button">REMATCH</button>                
+                           
             <button class="option-button" id="new-game-button">NEWGAME</button>                
         </div>
 
@@ -54,31 +54,31 @@
             <div id="ballSizeContainer">
                 <p>Ball Size</p>
                 <label class="radioLabels" for="tinyBall">TINY
-                <input type="radio" name="ballsize" id="tinyBall" value="tiny"></label>
+                <input type="radio" name="ballsize" id="tinyBall" value='5'></label>
                 <label class="radioLabels" for="normBall">NORMAL
-                <input type="radio" name="ballsize" id="normBall" value="normal"></label>
+                <input type="radio" name="ballsize" id="normBall" value="10" checked="checked"></label>
                 <label class="radioLabels" for="gigaBall">GIGA
-                <input type="radio" name="ballsize" id="gigaBall" value="giga"></label>
+                <input type="radio" name="ballsize" id="gigaBall" value="75"></label>
             </div>
             <div id="paddleSizeContainer">
                     <p>Paddle Size</p>
                     <label class="radioLabels" for="tinyPaddle">TINY
-                    <input type="radio" name="paddleSize" id="tinyPaddle" value="tiny"></label>
+                    <input type="radio" name="paddleSize" id="tinyPaddle" value="20"></label>
                     <label class="radioLabels" for="normPaddle">NORMAL
-                    <input type="radio" name="paddleSize" id="normPaddle" value="normal"></label>
+                    <input type="radio" name="paddleSize" id="normPaddle" value="70" checked="checked"></label>
                     <label class="radioLabels" for="gigaPaddle">GIGA
-                    <input type="radio" name="paddleSize" id="gigaPaddle" value="giga"></label>
+                    <input type="radio" name="paddleSize" id="gigaPaddle" value="120"></label>
             </div>
             <div id="difficultyContainer">
                     <p>Difficulty</p>
                     <label class="radioLabels" for="baby">BABY
-                    <input type="radio" name="difficulty" id="baby" value="baby"></label>
+                    <input type="radio" name="difficulty" id="baby" value="10"></label>
                     <label class="radioLabels" for="normal">NORMAL
-                    <input type="radio" name="difficulty" id="normal" value="normal"></label>
+                    <input type="radio" name="difficulty" id="normal" value="50" checked="checked"></label>
                     <label class="radioLabels" for="hard">HARD
-                    <input type="radio" name="difficulty" id="hard" value="hard"></label>
+                    <input type="radio" name="difficulty" id="hard" value="100"></label>
                     <label class="radioLabels" for="epic">EPIC
-                    <input type="radio" name="difficulty" id="epic" value="epic"></label>
+                    <input type="radio" name="difficulty" id="epic" value="200"></label>
             </div>
             <div id="ballColorListContainer">
                 <label for="ballColor">Ball Color</label>
@@ -113,16 +113,16 @@
             <div id="netColorListContainer">
                     <label for="netColor">Net Color</label>
                     <select id="netColor">
-                        <option value="black">BLACK</option>
                         <option value="white">WHITE</option>
+                        <option value="black">BLACK</option>
                         <option value="red">RED</option>
                         <option value="blue">BLUE</option>
                         <option value="GREEN">GREEN</option>
                     </select>
             </div>
             <div id="saveButtonContainer">
-                <button id="saveButton" class="option-button">Start Game</button>
-                <button id="scoresFromSettings" class="option-button">High Scores</button>
+                <button id="saveButton" class="option-button">Save</button>
+                <button id="scoresFromSettings" class="option-button">Scores</button>
             </div>
             
         </div>

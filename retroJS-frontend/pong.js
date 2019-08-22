@@ -19,8 +19,6 @@ let soundObj = {
 }
 
 
-
-
 class Vec
 {
     constructor(x = 0, y = 0)
@@ -74,13 +72,19 @@ class Player extends Rect
 }
 class Pong
 {
-    constructor(canvas, endContainer, playerOne, playerTwo, game, incrementalSpeed = 50, ballSize = 10, paddleLength = 70)
+    //pong settings as argument *still need to fix
+    constructor(canvas, endContainer, playerOne, playerTwo, game, settingsObj /*= {ballSize, paddleLength, difficulty, ballColor, paddleColor, this.backgroundColor, netColor}*/)
     {
         //pong settings
-        this.incrementalSpeed = incrementalSpeed;
-        this.ballSize = ballSize;
-        this.paddleLength = paddleLength;
+        this.incrementalSpeed = Number(settingsObj.difficulty);
+        this.ballSize = Number(settingsObj.ballSize);
+        this.paddleLength = Number(settingsObj.paddleLength);
         
+        // pong color settings
+        this.ballColor = settingsObj.ballColor
+        this.paddleColor = settingsObj.paddleColor
+        this.backgroundColor = settingsObj.backgroundColor
+        this.netColor = settingsObj.netColor
         // creates the canvas for pong
         this._canvas = canvas
         this._ctx = canvas.getContext('2d')
@@ -181,6 +185,7 @@ class Pong
         }
         callback()
     }
+    //end of constructor
     resetBall()
     {
         this.ball.pos.x = this._canvas.width / 2
@@ -208,19 +213,19 @@ class Pong
                 ball.vel.y -= this.incrementalSpeed
             }
             ball.vel.x = -ball.vel.x
-            // console.log(ball.vel.x)
+            
         }
     }
-    // Accepts arguments of background and net color
-    draw(backgroundColor = 'black', netColor = 'white', ballColor = 'white', paddleColor = 'white')
+    
+    draw()
     {   
         // Creates background
-        this._ctx.fillStyle = backgroundColor
+        this._ctx.fillStyle = this.backgroundColor
         this._ctx.fillRect(0, 0, this._canvas.width, this._canvas.height)
         // Creates Ball
-        this.drawRect(this.ball, ballColor)   
+        this.drawRect(this.ball, this.ballColor)   
         // Creates both paddles
-        this.players.forEach(player => this.drawRect(player, paddleColor))        
+        this.players.forEach(player => this.drawRect(player, this.paddleColor))        
 
         // Draws the net in the middle
         this._ctx.beginPath()
@@ -228,7 +233,7 @@ class Pong
         this._ctx.moveTo(this._canvas.width/2, 0)
         this._ctx.lineTo(this._canvas.width/2, this._canvas.height)
         this._ctx.lineWidth = 5
-        this._ctx.strokeStyle = netColor
+        this._ctx.strokeStyle = this.netColor
         this._ctx.stroke()
         
         // Draws Player 1 (Left Paddle Score)
