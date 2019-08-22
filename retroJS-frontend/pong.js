@@ -1,24 +1,3 @@
-
-// Sound effects
-let hitsound = new Audio()
-hitsound.src = './audio/Beep1.wav';
-let wallbouncesound = new Audio()
-wallbouncesound.src = './audio/Beep2.wav'
-let winSound = new Audio()
-winSound.src = './audio/FFVII_WIN.mp3'
-let backgroundMusic = new Audio()
-backgroundMusic.src = './audio/Tetris_background.mp3'
-let scoreSound = new Audio()
-scoreSound.src = './audio/Mario-coin-sound.mp3'
-let soundObj = {
-    hit: hitsound,
-    wallBounce: wallbouncesound,
-    win: winSound,
-    background: backgroundMusic,
-    score: scoreSound
-}
-
-
 class Vec
 {
     constructor(x = 0, y = 0)
@@ -73,7 +52,7 @@ class Player extends Rect
 class Pong
 {
     //pong settings as argument *still need to fix
-    constructor(canvas, endContainer, playerOne, playerTwo, game, settingsObj /*= {ballSize, paddleLength, difficulty, ballColor, paddleColor, this.backgroundColor, netColor}*/)
+    constructor(canvas, endContainer, playerOne, playerTwo, game, settingsObj,soundObj /*= {ballSize, paddleLength, difficulty, ballColor, paddleColor, this.backgroundColor, netColor}*/)
     {
         //pong settings
         this.incrementalSpeed = Number(settingsObj.difficulty);
