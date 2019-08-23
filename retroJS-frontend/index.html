@@ -10,7 +10,7 @@
     <script defer type="text/javascript" src="start.js"></script>
     <script defer type="text/javascript" src="gameover.js"></script>
     <script defer type="text/javascript" src="settings.js"></script>
-    <script defer type="text/javascript" src="fetch.js"></script>
+    <!-- <script defer type="text/javascript" src="fetch.js"></script> -->
 </head>
 <body>
 <div class="wrapper">
@@ -30,7 +30,11 @@
                 <button class="option-button" id="settings-button">SETTINGS</button>
             </form>
         </div>
-
+        
+        <!--IMAGE FUNTIME! <img id="img-player-one" src="8Bit_Mario.png" style="display: none">
+        <img id="img-player-two" src="link_ani.gif" style="display: none">
+        <img id="img-ball" src="8Bit_Coin.png" style="display: none"> -->
+        
         <canvas id="pong" width="650" height="500"></canvas>
         
         <div id="end-container">
@@ -78,7 +82,7 @@
                     <label class="radioLabels" for="epic">EPIC
                     <input type="radio" name="difficulty" id="epic" value="200"></label>
             </div>
-            
+
             <div id="audioPresetContainer">
                 <label for="audio-preset">AUDIO</label>
                 <select id="audio-preset">
@@ -86,6 +90,9 @@
                     <option value="mario">MARIO</option>
                     <option value="zelda">ZELDA</option>
                     <option value="sonic">SONIC</option>
+                    <option value="wario">WARIO</option>
+                    <option value="wii">WII</option>
+                    <option value="flat">FLAT</option>
                 </select>
             </div>
 

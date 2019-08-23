@@ -1,3 +1,4 @@
+// NOT CURRENTLY IN USE
 let allGamesArray = []
 
 const newGame = ()=>{
@@ -85,7 +86,7 @@ const updatePlayer = () => {
 //         players.forEach(player => playersList.push(player))
 //         displayScores(playersList.sort((a , b) => (a.points > b.points) ? -1 : 1))
 //     })
-// }
+// 
 const getGames = ()=>{
     fetch(gameURL)
     .then(res => res.json())

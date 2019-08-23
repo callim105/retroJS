@@ -15,21 +15,13 @@ class Rect
         this.size = new Vec(w, h)
     }
     get left()
-    {
-        return this.pos.x - this.size.x / 2
-    }
+    { return this.pos.x - this.size.x / 2 }
     get right()
-    {
-        return this.pos.x + this.size.x / 2
-    }
+    { return this.pos.x + this.size.x / 2 }
     get top()
-    {
-        return this.pos.y - this.size.y / 2
-    }
+    { return this.pos.y - this.size.y / 2 }
     get bottom()
-    {
-        return this.pos.y + this.size.y / 2
-    }
+    { return this.pos.y + this.size.y / 2 }
 }
 
 class Ball extends Rect
@@ -46,12 +38,10 @@ class Player extends Rect
     constructor(w, h) {
         super(w, h)
         this.score = 0
-        // this.username = username
     }
 }
 class Pong
 {
-    //pong settings as argument *still need to fix
     constructor(canvas, endContainer, playerOne, playerTwo, game, settingsObj,soundObj /*= {ballSize, paddleLength, difficulty, ballColor, paddleColor, this.backgroundColor, netColor}*/)
     {
         //pong settings
@@ -64,12 +54,14 @@ class Pong
         this.paddleColor = settingsObj.paddleColor
         this.backgroundColor = settingsObj.backgroundColor
         this.netColor = settingsObj.netColor
+
         // creates the canvas for pong
         this._canvas = canvas
         this._ctx = canvas.getContext('2d')
         
         // Creates the Ball element w/starting Position and Velocity
         this.ball = new Ball(this.ballSize, this.ballSize)
+
         // Assign random launch direction
         this.resetBall()
         this.ball.vel.x = Math.random() < .5 ? -200 : 200
@@ -80,16 +72,17 @@ class Pong
             new Player(8, this.paddleLength),
             new Player(8, this.paddleLength),
         ]
-        this.winner
         // Sets starting position of both players paddles
         this.players[0].pos.x = 40
         this.players[1].pos.x = this._canvas.width - 40
         this.players.forEach(player => {
             player.pos.y = this._canvas.height / 2
         })
+        this.winner // boolean  value if true then Player 1 win, false then Player 2 win
         
-        let myReq
+        let myReq // used to control animation stop
         let lastTime // used for callback animation
+
         const callback = (millis) => {
             // millis is special word counts milliseconds since page load
             if (!this.winner) {
@@ -98,8 +91,7 @@ class Pong
                 }
                 lastTime = millis
                 myReq = requestAnimationFrame(callback)
-                // On game completion, stops the ball movement
-                // Will need to take this final score with the fetch PATCH request 
+                // End Game Functionality
                 if (this.players[0].score === 5 || this.players[1].score === 5) {
                     soundObj.background.pause()
                     soundObj.win.play()
@@ -156,9 +148,7 @@ class Pong
                     }
                     patchData()
                     this._canvas.style.display = "none"
-                    // this._canvas.remove()
-                    // const endContainer = document.getElementById("end-container")
-                    endContainer.style.display = 'block'                    
+                    endContainer.style.display = 'block' // take in arg of end game container
                 }
             }
         }
@@ -176,7 +166,6 @@ class Pong
             this.ball.vel.x = -200
             this.ball.vel.y = -200
         }
-        // this.ball.vel.x = -this.ball.vel.x
     }
     // Controls all collisions between ball and player paddles
     collide(player, ball)
@@ -192,30 +181,17 @@ class Pong
                 ball.vel.y -= this.incrementalSpeed
             }
             ball.vel.x = -ball.vel.x
-            
         }
     }
-    
+    // Draw function redraws on canvas for every frame in recursive callback function
     draw()
     {   
         // Creates background
         this._ctx.fillStyle = this.backgroundColor
         this._ctx.fillRect(0, 0, this._canvas.width, this._canvas.height)
-        // Creates Ball
-        this.drawRect(this.ball, this.ballColor)   
-        // Creates both paddles
-        this.players.forEach(player => this.drawRect(player, this.paddleColor))        
-
-        // Draws the net in the middle
-        this._ctx.beginPath()
-        this._ctx.setLineDash([7,15])
-        this._ctx.moveTo(this._canvas.width/2, 0)
-        this._ctx.lineTo(this._canvas.width/2, this._canvas.height)
-        this._ctx.lineWidth = 5
-        this._ctx.strokeStyle = this.netColor
-        this._ctx.stroke()
         
         // Draws Player 1 (Left Paddle Score)
+        this._ctx.fillStyle = this.paddleColor
         this._ctx.font = '50px courier new'
         this._ctx.fillText(
             this.players[0].score,
@@ -228,6 +204,32 @@ class Pong
             (this._canvas.width * 3 / 4),
             75
         )
+        
+        // Creates Ball
+        this.drawRect(this.ball, this.ballColor)
+        // Creates both paddles
+        this.players.forEach(player => this.drawRect(player, this.paddleColor))        
+        
+        /*
+        // Creates Ball w/ Image
+        let imgBall = document.getElementById("img-ball")
+        this.drawImg(this.ball, imgBall, 2, 2)
+        // Creates paddles one at a time w/ image
+        let imgPlayerOne = document.getElementById("img-player-one")
+        this.drawImg(this.players[0], imgPlayerOne, 5, 1)        
+        let imgPlayerTwo = document.getElementById("img-player-two")
+        this.drawImg(this.players[1], imgPlayerTwo, 5, 1)        
+        */
+        
+        // Draws the net in the middle
+        this._ctx.beginPath()
+        this._ctx.setLineDash([7,15])
+        this._ctx.moveTo(this._canvas.width/2, 0)
+        this._ctx.lineTo(this._canvas.width/2, this._canvas.height)
+        this._ctx.lineWidth = 5
+        this._ctx.strokeStyle = this.netColor
+        this._ctx.stroke()
+        
         if (!startGame) {
             this._ctx.font = '100px georgia'
             this._canvas.fillStyle = '#FFFFFF'
@@ -244,13 +246,17 @@ class Pong
             this._ctx.fillText("Player 2: P / ;", (this._canvas.width*2 / 3), (this._canvas.height / 2 + 180))
             this._ctx.fillText("Press Space to Pause", (this._canvas.width / 2), (this._canvas.height / 2 + 210))
         }
-        
     }
     // Draws all rectangles on canvas with color
     drawRect(rect, color)
     {
         this._ctx.fillStyle = color
         this._ctx.fillRect(rect.left, rect.top, rect.size.x, rect.size.y)
+    }
+    // Draws Images on canvas
+    drawImg(rect, img, scaleX, scaleY) // No user function yet
+    {
+        this._ctx.drawImage(img, rect.pos.x - (rect.size.x/2), rect.pos.y - (rect.size.y/2), rect.size.x*scaleX, rect.size.y*scaleY)
     }
     // Moves each respectively paddle if 'keydown' event remains true
     paddleMove(paddleSpeed)
@@ -275,7 +281,6 @@ class Pong
                 this.players[1].pos.y += paddleSpeed
             }
         }
-
     }
     // Update function changed ball position over time
     update(dt) 
@@ -311,15 +316,7 @@ class Pong
         // black, white, white, white for default
         this.draw()
     }
-    
 }
-
-// KEY CODES
-// w = 87
-// s = 83
-// p = 80
-// ; = 186
-// spacebar = 32
 
 // Sets starting values of keyEvents
 let paddleUpA = false
@@ -329,6 +326,12 @@ let paddleDownB = false
 let startGame = false
 let gameOver = false
 
+// KEY CODES
+// w = 87
+// s = 83
+// p = 80
+// ; = 186
+// spacebar = 32
 
 // Event Handlers
 const handleKeyDown = (event) => {
