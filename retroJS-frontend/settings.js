@@ -45,41 +45,55 @@ const selectAudio = () => {
     switch (audioSelector.value) {
         case 'default':
             hitStr = './audio/default/Beep1.wav'
-            wallBounceStr ='./audio/default/Beep2.wav'
             winStr = './audio/default/FFVII_WIN.mp3'
+            wallBounceStr ='./audio/default/Beep2.wav'
             backgroundStr = './audio/default/Tetris_background.mp3'
             scoreSoundStr = './audio/mario/Mario-coin-sound.mp3'
             break;
         case 'mario':
+            hitStr = './audio/default/Beep1.wav'
             winStr = './audio/mario/Z01 Victory (Super Mario Bros.).mp3'
             backgroundStr = './audio/mario/03 - Super Mario Bros 2 Main Theme.mp3'
             // backgroundStr = './audio/mario/05 - Magic Doorway.mp3'
+            scoreSoundStr = './audio/mario/Mario-coin-sound.mp3'
+            wallBounceStr ='./audio/default/Beep2.wav'
             break;
         case 'zelda':
             hitStr = './audio/zelda/WW_Rupee_Bounce.wav'
-            wallBounceStr = './audio/zelda/WW_Get_Rupee.wav'
             winStr = './audio/zelda/Z03 Victory (The Legend of Zelda).mp3'
             backgroundStr = './audio/zelda/C02 Main Theme (The Legend of Zelda).mp3'
             scoreSoundStr ='./audio/zelda/08 - Item Catch.mp3'
+            wallBounceStr = './audio/zelda/WW_Get_Rupee.wav'
             break;
         case 'sonic':
+            hitStr = './audio/default/Beep1.wav'
             winStr = './audio/sonic/Z47 Victory (Sonic the Hedgehog).mp3'
             // backgroundStr = './audio/sonic/U01 Green Hill Zone.mp3'
             backgroundStr = './audio/sonic/U09 Live & Learn.mp3'
             scoreSoundStr = './audio/sonic/26f8b9_sonic_ring_sound_effect.mp3'
+            wallBounceStr ='./audio/default/Beep2.wav'
             break;
         case 'wario':
+            hitStr = './audio/default/Beep1.wav'
+            winStr = './audio/wario/mk64_wariowin.wav'
             backgroundStr = './audio/wario/M01 WarioWare, Inc..mp3'
             scoreSoundStr = './audio/wario/mk64_wariolaugh.wav'
+            wallBounceStr ='./audio/default/Beep2.wav'
             // winStr = './audio/wario/mk64_warioloss.wav'
-            winStr = './audio/wario/mk64_wariowin.wav'
             break;
         case 'wii':
+            hitStr = './audio/default/Beep1.wav'
+            winStr = './audio/Z17 Victory (Fire Emblem).mp3'
             backgroundStr = './audio/R11 Wii Shop Channel.mp3'
-            // winStr = './audio/Z17 Victory (Fire Emblem).mp3'
+            scoreSoundStr = './audio/mario/Mario-coin-sound.mp3'
+            wallBounceStr ='./audio/default/Beep2.wav'
             break;
         case 'flat':
+            hitStr = './audio/default/Beep1.wav'
+            winStr = './audio/Z17 Victory (Fire Emblem).mp3'
             backgroundStr = './audio/R04 Flat Zone 2.mp3'
+            scoreSoundStr = './audio/mario/Mario-coin-sound.mp3'
+            wallBounceStr ='./audio/default/Beep2.wav'
             break;   
     }
     hitsound.src = hitStr;

@@ -205,21 +205,21 @@ class Pong
             75
         )
         
+        
         // Creates Ball
         this.drawRect(this.ball, this.ballColor)
         // Creates both paddles
         this.players.forEach(player => this.drawRect(player, this.paddleColor))        
         
-        /*
-        // Creates Ball w/ Image
-        let imgBall = document.getElementById("img-ball")
-        this.drawImg(this.ball, imgBall, 2, 2)
-        // Creates paddles one at a time w/ image
-        let imgPlayerOne = document.getElementById("img-player-one")
-        this.drawImg(this.players[0], imgPlayerOne, 5, 1)        
-        let imgPlayerTwo = document.getElementById("img-player-two")
-        this.drawImg(this.players[1], imgPlayerTwo, 5, 1)        
-        */
+        
+        // // Creates Ball w/ Image
+        // let imgBall = document.getElementById("img-ball")
+        // this.drawImg(this.ball, imgBall, 2, 2)
+        // // Creates paddles one at a time w/ image
+        // let imgPlayerOne = document.getElementById("img-player-one")
+        // this.drawImg(this.players[0], imgPlayerOne, 5, 1)        
+        // let imgPlayerTwo = document.getElementById("img-player-two")
+        // this.drawImg(this.players[1], imgPlayerTwo, 5, 1)        
         
         // Draws the net in the middle
         this._ctx.beginPath()
