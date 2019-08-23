@@ -219,3 +219,10 @@ li {
     margin-top: -50px;
     margin-right: 0px;
 }
+
+#img-ball {
+    /* text-align: center; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

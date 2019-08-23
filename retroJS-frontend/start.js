@@ -18,58 +18,50 @@ const scoreFromSettings = document.getElementById("scoresFromSettings")
 canvas.style.display = "none"
 scoreContainer.style.display = "none"
 
-// let fetchContent = {
-//     method: "POST",
-//     headers: { "content-type": "application/json", "accept": "application/json" },
-//     body: JSON.stringify(formData)
-// }
 let players
 playButton.addEventListener("click", async (event)=>{
     event.preventDefault()
     players = []
     soundObj.background.play()
-    //this is disgusting, pls fix.
     try{
     let playerOne = await fetch(playerURL, {
-                                method: "POST",
-                                headers: { "content-type": "application/json", "accept": "application/json" },
-                                body: JSON.stringify({
-                                    username: playerOneInput.value
-                                })
-                            })
-                            .then(res => res.json())
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({
+            username: playerOneInput.value
+        })
+    })
+    .then(res => res.json())
 
     // Post Fetch Player 2 w/ Post fetch of new game
     let playerTwo = await fetch(playerURL, {
-                                method: "POST",
-                                headers: { "content-type": "application/json", "accept": "application/json" },
-                                body: JSON.stringify({
-                                    username: playerTwoInput.value
-                                })
-                            })
-                            .then(res => res.json())
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({
+            username: playerTwoInput.value
+        })
+    })
+    .then(res => res.json())
+                            
     players.push(playerOne)
-    
     players.push(playerTwo)
+    // Use fetched players to POST new game instance
     let game = await fetch(gameURL, {
-                                method: "POST",
-                                headers: { "content-type": "application/json", "accept": "application/json" },
-                                body: JSON.stringify({
-                                    player_1_id: players[0].id,
-                                    player_2_id: players[1].id
-                                })
-                            })
-                            .then(res => res.json())
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({
+            player_1_id: players[0].id,
+            player_2_id: players[1].id
+        })
+    })
+    .then(res => res.json())
     
     let pong = new Pong(canvas, endContainer, players[0], players[1], game, settingsObj, soundObj)
     
     canvas.style.display = "block"
     startContainer.style.display = "none"
-                        } catch(err){console.error(err)}
+    } catch(err){console.error(err)}
 })
-        
-    
-
 
 scoreButton.addEventListener('click', (event) => {
     event.preventDefault()
