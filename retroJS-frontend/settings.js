@@ -23,11 +23,11 @@ const audioSelector = document.getElementById("audio-preset")
 let settingsObj = {}
 
 // Sound effects
-let hitsound = new Audio()
-let wallbouncesound = new Audio()
-let winSound = new Audio()
-let backgroundMusic = new Audio()
-let scoreSound = new Audio()
+let hitsound = new Audio({volume: 0.05})
+let wallbouncesound = new Audio({volume: 0.05})
+let winSound = new Audio({volume: 0.3})
+let backgroundMusic = new Audio({loop: true,  volume: 0.3})
+let scoreSound = new Audio({volume: 0.05})
 let hitStr
 let wallBounceStr
 let winStr

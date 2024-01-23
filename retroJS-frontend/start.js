@@ -22,6 +22,7 @@ let players
 playButton.addEventListener("click", async (event)=>{
     event.preventDefault()
     players = []
+    soundObj.background.volume = 0.2
     soundObj.background.play()
     try{
     let playerOne = await fetch(playerURL, {
